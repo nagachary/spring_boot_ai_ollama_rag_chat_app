@@ -102,12 +102,3 @@ Think of it as a **local AI API server**—similar to OpenAI—but everything ru
 | ApplicationContext startup failure            | N/A                | Spring Boot init   | Embedding model failure             | Fix Ollama model/API availability                  |
 
 ---
-
-✅ **This README now provides:**
-
-* Clear context about the **RAG application** for health tips
-* Explanation of **Ollama, embedding and chat models**
-* Table-based **error reference and troubleshooting guide**
-* **Vector dimensions and resource guidance**
-
----
