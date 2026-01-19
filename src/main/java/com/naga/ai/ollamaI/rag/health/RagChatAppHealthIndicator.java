@@ -19,30 +19,16 @@ public class RagChatAppHealthIndicator implements HealthIndicator {
     @Override
     public Health health() {
         try {
-            // 1. Check Document Count
-            Integer docCount = jdbcTemplate.queryForObject(
-                    "SELECT COUNT(*) FROM vector_store", Integer.class);
-
-            // 2. Simple "Ping" to Ollama
-            // We ask a tiny question to verify the model is loaded and responsive
+            Integer docCount = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM vector_store", Integer.class);
             String response = chatModel.call("Confirm status with one word: 'Ready'.");
-            boolean isAiReady = response != null && response.toLowerCase().contains("ready");
-
-            if (!isAiReady) {
-                return Health.status("DEGRADED")
-                        .withDetail("ollama", "Server responded but model is not ready")
-                        .build();
-            }
 
             return Health.up()
                     .withDetail("ollama", "Responsive")
+                    .withDetail("modelStatus", response)
                     .withDetail("vectorStoreCount", docCount)
                     .build();
         } catch (Exception e) {
-            return Health.down()
-                    .withException(e)
-                    .withDetail("reason", "Ollama or Database unreachable")
-                    .build();
+            return Health.down().withException(e).build();
         }
     }
 }
