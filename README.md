@@ -16,6 +16,7 @@ It uses **PostgreSQL + pgvector** for semantic search, enabling fast and accurat
 **Chat API Endpoint:**
 
 ```
+http://localhost:8087/mysbragapp/actuator/health
 http://localhost:8087/mysbragapp/api/rag_chat/healthy_tips
 ```
 
