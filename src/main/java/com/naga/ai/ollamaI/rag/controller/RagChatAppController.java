@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/rag_chat")
 public class RagChatAppController {
     Logger logger = LoggerFactory.getLogger(RagChatAppController.class);
     private final OllamaChatModel ollamaChatModel;
@@ -26,7 +26,7 @@ public class RagChatAppController {
         this.vectorStore = vectorStore;
     }
 
-    @PostMapping("/rag_chat")
+    @PostMapping("/healthy_tips")
     public String chat(@RequestBody String message) {
         logger.info("chat");
         var chatClient = ChatClient
