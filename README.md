@@ -4,6 +4,15 @@
 **RAG Chat Application:** A local AI-powered chat system that retrieves relevant **health tips** from documents and provides context-aware responses.
 It uses **PostgreSQL + pgvector** for semantic search, enabling fast and accurate information retrieval from your health knowledge base.
 
+**How To Run In Local:**
+* Make sure docker is running in local.
+* Use these commands in terminal;
+```
+1)  ./start-ollama.sh
+2) docker compose build
+3) docker compose up -d
+4) mvn spring-boot:run
+```
 **Chat API Endpoint:**
 
 ```
